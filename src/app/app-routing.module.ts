@@ -8,7 +8,7 @@ import { EditProjectComponent } from './Porjects/edit-project/edit-project.compo
 import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
-  {  path:'',  redirectTo :'ListeProfiles' , pathMatch: 'full', },
+  {  path:'',  redirectTo :'liste-profiles' , pathMatch: 'full', },
   {  path:'AddProfile',  component:AddprofileComponent},
   {  path:'ListeProfiles',  component:ListProfilesComponent},
   {  path:'liste-profiles',  component:TestComponent},
