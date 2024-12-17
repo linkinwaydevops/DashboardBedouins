@@ -1,0 +1,149 @@
+<!-- Start Content-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-flex align-items-center">
+      <select
+        [(ngModel)]="selectedCategory"
+        (change)="filterProfiles()"
+        class="form-select me-2"
+        style="width: auto"
+      >
+        <option value="">See All</option>
+        <option value="Designer">Designer</option>
+        <option value="Developer">Developer</option>
+        <option value="Manager">Manager</option>
+        <!-- Add more categories as needed -->
+      </select>
+      <select
+        [(ngModel)]="selectedLocation"
+        (change)="filterProfiles()"
+        class="form-select me-2"
+        style="width: auto"
+      >
+        <option value="">See All</option>
+        <option value="USA">UK</option>
+        <option value="Canada">Qatar</option>
+        <!-- Add more locations as needed -->
+      </select>
+
+      <button class="btn btn-outline-primary" (click)="getAllProfiles()">
+        See All
+      </button>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div
+      class="col-xl-4 col-lg-4 col-md-6"
+      *ngFor="let user of paginatedProfiles"
+    >
+      <div class="card">
+        <div class="position-relative img-overlay">
+          <img
+            src="assets/images/small/small-1.jpg"
+            alt=""
+            height="150"
+            width="100%"
+            class="object-fit-cover"
+          />
+        </div>
+        <div class="card-body">
+          <div class="text-center">
+            <div
+              class="mx-auto position-absolute z-3 start-50 translate-middle border border-5 border-white"
+              style="top: 40%"
+            >
+              <img
+                [src]="
+                  user.profileImagePath
+                    ? 'http://localhost:8089/' + user.profileImagePath
+                    : 'path/to/default/avatar.jpg'
+                "
+                alt="{{ user.name }}"
+                class="avatar-md img-fluid"
+              />
+            </div>
+
+            <div class="pt-4">
+              <h4 class="mb-1">{{ user.lastName }} {{ user.name }}</h4>
+              <p class="mb-2">{{ user.category }}</p>
+            </div>
+
+            <div class="d-flex gap-2 justify-content-center mb-2">
+                <button class="btn btn-success rounded-pill me-2" (click)="viewProfile(user.id)" title="View">
+                    <i class="ri-eye-line"></i>
+                </button>
+                <button class="btn btn-warning rounded-pill me-2" (click)="editProfile(user)" title="Edit">
+                    <i class="ri-pencil-line"></i>
+                </button>
+                <button class="btn btn-danger rounded-pill me-2" (click)="deleteProfile(user.id)" title="Delete">
+                    <i class="ri-delete-bin-line"></i>
+                </button>
+            </div>
+
+            <ul
+              class="d-flex justify-content-around list-unstyled border-top border-dark-subtle pt-2 text-center mb-0"
+            >
+            
+            <li *ngFor="let userProject of userProjects">
+                <div class="row">
+                  <div class="col-12" *ngIf="userProject.userId==user.id">
+                    <h4>Projects: {{userProject.projects.length}}</h4>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <i class="ri-add-circle-line" (click)="AddProjects(user.id)" style="cursor: pointer;" style="color: green;"></i><br>
+                <span style="cursor: pointer; margin-left: 5px;" (click)="AddProjects(user.id)">Ajouter projet</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          <li class="page-item">
+            <a href="#" aria-label="Previous" class="page-link">
+              <i class="mdi mdi-chevron-left lh-sm"></i
+            ></a>
+          </li>
+          <li class="page-item"><a href="#" class="page-link">1</a></li>
+          <li class="active page-item"><a href="#" class="page-link">2</a></li>
+          <li class="page-item"><a href="#" class="page-link">3</a></li>
+          <li class="disabled page-item">
+            <a href="#" class="page-link">4</a>
+          </li>
+          <li class="page-item"><a href="#" class="page-link">5</a></li>
+          <li class="page-item">
+            <a href="#" aria-label="Next" class="page-link">
+              <i class="mdi mdi-chevron-right lh-sm"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+<!-- container -->
+
+<!-- Footer Start -->
+<footer class="footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 text-center">
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        © Techmin - Theme by <b>Techzaa</b>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- end Footer -->

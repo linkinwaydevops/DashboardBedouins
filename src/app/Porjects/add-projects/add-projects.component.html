@@ -1,0 +1,56 @@
+<div class="account-pages p-sm-5 position-relative">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xxl-9 col-lg-11">
+                <div class="card overflow-hidden">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="d-flex flex-column h-100">
+                                <div class="auth-brand p-4 text-center">
+                                 
+                                    <a class="logo-dark">
+                                        <img src="assets/images/logo-dark.png" alt="dark logo" height="28">
+                                    </a>
+                                </div>
+                                <div class="p-4 my-auto text-center">
+                                    <h4 class="fs-20">Add Project</h4>
+                                    <p class="text-muted mb-4">Provide project details below.</p>
+
+                                    <!-- Project Form -->
+                                    <form (ngSubmit)="onSubmit()" #projectForm="ngForm" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label for="projectName" class="form-label">Project Name</label>
+                                            <input class="form-control" type="text" id="projectName" name="projectName" [(ngModel)]="projectName" required placeholder="Enter project name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">Description</label>
+                                            <textarea class="form-control" id="description" name="description" [(ngModel)]="description" required placeholder="Enter project description"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="projectImages" class="form-label">Project Images</label>
+                                            <input 
+                                            type="file" 
+                                            id="fileUpload" 
+                                            class="form-control" 
+                                            (change)="onFileChange($event)" 
+                                            multiple 
+                                            accept="image/*,video/*" 
+                                        />
+                                        </div>
+                                        <div class="mb-0 d-grid text-center">
+                                            <button class="btn btn-primary fw-semibold" type="submit">Add Project</button>
+                                        </div>
+                                    </form>
+                                    <!-- end Project Form -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 d-none d-lg-block">
+                            <img src="assets/images/best-project-design.png" alt="" class="img-fluid rounded h-100">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

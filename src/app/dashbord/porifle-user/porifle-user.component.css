@@ -1,0 +1,3 @@
+.table th, .table td {
+    text-align: center; /* Centre le texte dans tous les th et td à l'intérieur des tables */
+}
