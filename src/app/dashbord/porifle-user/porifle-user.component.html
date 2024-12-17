@@ -14,7 +14,7 @@
             <img
             [src]="
             userProfile.profileImagePath
-              ? 'https://bedouinsstudios.com:8089' + userProfile.profileImagePath
+              ? 'https://bedouinsstudios.com:8089/uploads' + userProfile.profileImagePath
               : 'path/to/default/avatar.jpg'
           "
           alt="{{ userProfile.name }}"
@@ -73,7 +73,7 @@
               <div class="d-flex flex-wrap">
                 <img
                   *ngFor="let imagePath of project.projectImagePaths"
-                  [src]="'https://bedouinsstudios.com:8089' + imagePath"
+                  [src]="'https://bedouinsstudios.com:8089/uploads' + imagePath"
                   alt="{{ project.projectName }}"
                   class="img-thumbnail me-2"
                   style="max-width: 100px"
@@ -202,7 +202,7 @@
                       <img
                         *ngIf="project.projectImagePaths"
                         [src]="
-                          'https://bedouinsstudios.com:8089' + project.projectImagePaths
+                          'https://bedouinsstudios.com:8089/uploads' + project.projectImagePaths
                         "
                         alt="{{ project.projectName }}"
                         height="40"
